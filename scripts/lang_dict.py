@@ -1,106 +1,114 @@
 # ===============================================================
-# Author: Rodolfo Ferro Pérez
-# Email: ferro@cimat.mx
-# Twitter: @FerroRodolfo
-#
-# ABOUT COPYING OR USING PARTIAL INFORMATION:
-# This script was originally created by Rodolfo Ferro. Any
-# explicit usage of this script or its contents is granted
-# according to the license provided and its conditions.
+# Author: Firdauz Fanani
+# Email: firdauzfanani@gmail.com
+# Twitter: @firdauzfanani
 # ===============================================================
 
 lang_selected = {
-    "ES": "¡Idioma definido! \n\n\
-¿Cómo puedo ayudarte? La lista de opciones la encuentras a \
-través del comando /menu.",
+    "IND": "Selamat Datang \n\n\
+Apa yang dapat saya bantu? Berikut list perintah yang ada dengan \
+command /menu.",
     "EN": "All set! \n\n\
 How can I help you? A list of options can be found with the \
 /menu command."
 }
 
 main_menu = {
-    "ES": "Por favor selecciona una de las siguientes opciones:",
+    "IND": "Pilih pilihan menu dibawah ini:",
     "EN": "Please select an option from below:"
 }
 
+about_vio = {
+    "IND":"Tentang VIO",
+    "EN":"About VIO"
+}
+
 send_report = {
-    "ES": "Enviar reporte",
+    "IND": "Kirim Report",
     "EN": "Send report"
 }
 
+view_vio = {
+    "IND": "VIO Details",
+    "EN": "VIO Details"
+}
+
+view_product = {
+    "IND": "Produk VIO",
+    "EN": "VIO Products"
+}
+
 view_map = {
-    "ES": "Ver mapa",
+    "IND": "Tampilkan Peta",
     "EN": "View map"
 }
 
 view_faq = {
-    "ES": "Ver preguntas frecuentes",
+    "IND": "Tampilkan FAQ",
     "EN": "View FAQ"
 }
 
 view_about = {
-    "ES": "Acerca de",
-    "EN": "About"
+    "IND": "Tentang VIO Assistant",
+    "EN": "About VIO Assistant"
+}
+
+view_help= {
+    "IND": "Bantuan",
+    "EN": "Help"
 }
 
 back2menu = {
-    "ES": "Puedes volver al menú con el comando /menu.",
-    "EN": "You can go back to menu with the /menu command."
+    "IND": "Kamu dapat kembali ke pilihan menu dengan command /menu \n\
+atau mengganti bahas dengan /start",
+    "EN": "You can go back to menu with the /menu command. \n\
+or change language with /start"
 }
 
 goodbye = {
-    "ES": "¡Hasta luego, espero charlar pronto!",
+    "IND": "Selamat tinggal",
     "EN": "Bye, hope to chat back soon!"
 }
 
 selection = {
-    "ES": "Opción seleccionada: {}",
+    "IND": "Pilih pilihan: {}",
     "EN": "Selected option: {}"
 }
 
 about_info = {
-    "ES": "Soy un chatbot que ayuda ante las situaciones de desastre. \
-Envíame un reporte con tu localización para alimentar una base de datos \
-y así poder ubicarte geográficamente y poder enviarte ayuda. \n\n\
-Me encunetro en una versión alpha desarrollada por @RodolfoFerro.",
-    "EN": "I am a chatbot that helps in disaster situations. \
+    "IND": "Aku adalah chatbot VIO yang akan membantu kamu \
+Saya akan memberikan informasi lengkap tentang VIO \
+dan juga membawa kamu mengeksplore tentang VIO \n\n\
+Saya masih dalam tahap pengembangan @firdauzfanani",
+    "EN": "I am a VIO chatbot that will helps you here \
+I will give you information about VIO \
+And bring you to explore about VIO. \n\n\
+I'm still in developed version by @firdauzfanani"
+}
+
+vio_info = {
+    "IND": "VIO adalah Start Up yang berfokus pada pengembangan IOT \
+Tidak Hanya IOT namun juga mensupport PT GSPE dalam produksi \
+Dalam praktiknya VIO masih termasuk dalam anak perusahaan GSPE \n\n\
+",
+    "EN": "I am a VIO chatbot that will helps you here \
 Send me a report with your geolocation to feed a database an be able to \
 geo-locate you in order to send some help. \n\n\
-I'm in an alpha version developed by @RodolfoFerro."
+"
 }
 
 faq_info = {
-    "ES": "¿Qué hacer en caso de un sismo? Te recomendamos leer la \
-siguiente información proporcionada por la Cruz Roja: \
-http://www.redcross.org/get-help/\
-how-to-prepare-for-emergencies/types-of-emergencies/earthquake",
-    "EN": "What to do in case of earthquake? We recommend you to read \
-the following info provided by the Red Cross: \
-http://www.redcross.org/get-help/\
-how-to-prepare-for-emergencies/types-of-emergencies/earthquake",
-}
-
-map_info = {
-    "ES": "Opción en desarrollo... ¡Pronto podrás ver el mapa de reportes!",
-    "EN": "Option in development... You'll be able to see the report-map soon!"
-}
-
-loc_request = {
-    "ES": "Por favor envíame tu ubicación.",
-    "EN": "Please send your location."
-}
-
-loc_aquired = {
-    "ES": "¡Ubicación adquirida!",
-    "EN": "Location acquired!"
+    "IND": "Bila masih ada pertanyaan tentang VIO silahkan email ke support@vioint.co.id \
+",
+    "EN": "If you have any question you can email at support@vioint.co.id",
 }
 
 help_info = {
-    "ES": "Usa /cancel para finalizar el chat. \nUsa /start para reiniciar.",
-    "EN": "Use /cancel to end chat. \nUse /start to restart DisAtBot."
+    "IND": "Gunakan /cancel untuk mengakhiri chat. \nGunakan /start untuk memulai VIO Bot lagi.",
+    "EN": "Use /cancel to end chat. \nUse /start to restart VIO Bot."
 }
 
 template = {
-    "ES": "",
+    "IND": "",
     "EN": ""
 }

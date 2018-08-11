@@ -1,12 +1,7 @@
 # ===============================================================
-# Author: Rodolfo Ferro Pérez
-# Email: ferro@cimat.mx
-# Twitter: @FerroRodolfo
-#
-# ABOUT COPYING OR USING PARTIAL INFORMATION:
-# This script was originally created by Rodolfo Ferro. Any
-# explicit usage of this script or its contents is granted
-# according to the license provided and its conditions.
+# Author: Firdauz Fanani
+# Email: firdauzfanani@gmail.com
+# Twitter: @firdauzfanani
 # ===============================================================
 
 from shapely.geometry import Point
@@ -22,7 +17,7 @@ from credentials import *
 
 class geo_app():
     """
-    Geolocation application class to interact with DisAtBot, making
+    Geolocation application class to interact with VIObot, making
     him able to access and append data from the report database.
     """
 
