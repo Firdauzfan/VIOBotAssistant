@@ -162,25 +162,6 @@ def set_state(bot, update):
         STATE = DCIM
         dcim(bot, update)
         return MENU
-    elif update.message.text == vio_temp[LANG]:
-        STATE = VIOTEMP
-        viomenu(bot, update)
-    elif update.message.text == vio_temp1[LANG]:
-        STATE = VIOTEMP
-        viotemp(bot, update, 1)
-        return MENU
-    elif update.message.text == vio_temp2[LANG]:
-        STATE = VIOTEMP
-        viotemp(bot, update, 2)
-        return MENU
-    elif update.message.text == vio_temp3[LANG]:
-        STATE = VIOTEMP
-        viotemp(bot, update, 3)
-        return MENU
-    elif update.message.text == vio_temp4[LANG]:
-        STATE = VIOTEMP
-        viotemp(bot, update, 4)
-        return MENU
     elif update.message.text == vio_sketch[LANG]:
         STATE = VIOSKETCH
         viomenu(bot, update)
@@ -199,6 +180,25 @@ def set_state(bot, update):
     elif update.message.text == vio_sketch4[LANG]:
         STATE = VIOSKETCH
         viosketch(bot, update, 4)
+        return MENU
+    elif update.message.text == vio_temp[LANG]:
+        STATE = VIOTEMP
+        viomenu(bot, update)
+    elif update.message.text == vio_temp1[LANG]:
+        STATE = VIOTEMP
+        viotemp(bot, update, 1)
+        return MENU
+    elif update.message.text == vio_temp2[LANG]:
+        STATE = VIOTEMP
+        viotemp(bot, update, 2)
+        return MENU
+    elif update.message.text == vio_temp3[LANG]:
+        STATE = VIOTEMP
+        viotemp(bot, update, 3)
+        return MENU
+    elif update.message.text == vio_temp4[LANG]:
+        STATE = VIOTEMP
+        viotemp(bot, update, 4)
         return MENU
     elif update.message.text == view_faq[LANG]:
         STATE = FAQ
@@ -384,11 +384,10 @@ def main():
                             about_vio['IND'],view_about['IND'],
                             view_vio['IND'], view_product['IND'],
                             view_faq['IND'],view_help['IND'], vio_map['IND'],
-                            vio_waterlvl['IND'],vio_dcim['IND'],
+                            vio_waterlvl['IND'],vio_dcim['IND'], vio_temp['IND'],
                             vio_sketch['IND'], vio_sketch1['IND'],
                             vio_sketch2['IND'],vio_sketch3['IND'],
-                            vio_sketch4['IND'],vio_temp['IND'],
-                            vio_temp1['IND'],vio_temp2['IND'],
+                            vio_sketch4['IND'], vio_temp1['IND'],vio_temp2['IND'],
                             vio_temp3['IND'],vio_temp4['IND']),
                         set_state),
                        RegexHandler(
@@ -396,11 +395,10 @@ def main():
                             about_vio['EN'], view_about['EN'],
                             view_vio['EN'], view_product['EN'],
                             view_faq['EN'],view_help['EN'], vio_map['EN'],
-                            vio_waterlvl['EN'],vio_dcim['EN'],
+                            vio_waterlvl['EN'],vio_dcim['EN'], vio_temp['EN'],
                             vio_sketch['EN'],vio_sketch1['EN'],
                             vio_sketch2['EN'],vio_sketch3['EN'],
-                            vio_sketch4['EN'],vio_temp['EN'],
-                            vio_temp1['EN'],vio_temp2['EN'],
+                            vio_sketch4['EN'],vio_temp1['EN'],vio_temp2['EN'],
                             vio_temp3['EN'],vio_temp4['EN']),
                         set_state)],
 
@@ -408,7 +406,7 @@ def main():
                        CommandHandler('menu', menu)]
         },
 
-        fallbacks=[CommandHandler('cancel', cancel),
+        fallbacks=[CommandHandler('done', cancel),
                    CommandHandler('help', help)]
     )
 

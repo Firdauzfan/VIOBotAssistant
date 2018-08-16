@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/gspeff/Documents/Project/VIOBot/scripts/../models/nlu/default/chat/intent_classifier_tensorflow_embedding.ckpt"
+all_model_checkpoint_paths: "/home/gspeff/Documents/Project/VIOBot/scripts/../models/nlu/default/chat/intent_classifier_tensorflow_embedding.ckpt"

@@ -104,8 +104,8 @@ faq_info = {
 }
 
 help_info = {
-    "IND": "Gunakan /cancel untuk mengakhiri chat. \nGunakan /start untuk memulai VIO Bot lagi.",
-    "EN": "Use /cancel to end chat. \nUse /start to restart VIO Bot."
+    "IND": "Gunakan /done untuk mengakhiri chat. \nGunakan /start untuk memulai VIO Bot lagi.",
+    "EN": "Use /done to end chat. \nUse /start to restart VIO Bot."
 }
 
 template = {
