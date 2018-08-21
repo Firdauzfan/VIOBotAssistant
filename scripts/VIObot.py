@@ -8,6 +8,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, RegexHandler
 from telegram.ext import ConversationHandler, CallbackQueryHandler, Filters
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove
+import apiai,json
 from lang_dict import *
 from lang_dict_viomenu import *
 from lang_dict_vioproductmenu import *
@@ -27,7 +28,7 @@ logger = logging.getLogger(__name__)
 
 # Global vars:
 LANG = "EN"
-SET_LANG, MENU, SET_STAT, VIODETAILS,VIOTEMP, HELP,ABOUTVIO, MAP, FAQ, ABOUT, LOCATION,VIOMAP,VIOSKETCH, WATERLVL,VIOPRODUCT,DCIM = range(16)
+SET_LANG, MENU, SET_STAT,SMARTBOT,TEXT_MESSAGE, VIODETAILS,VIOTEMP, HELP,ABOUTVIO, MAP, FAQ, ABOUT, LOCATION,VIOMAP,VIOSKETCH, WATERLVL,VIOPRODUCT,DCIM = range(18)
 STATE = SET_LANG
 
 
@@ -75,7 +76,8 @@ def menu(bot, update):
     # Create buttons to slect language:
     keyboard = [[about_vio[LANG], view_about[LANG]],
                 [view_vio[LANG], view_product[LANG]],
-                [view_faq[LANG], view_help[LANG]]]
+                [view_faq[LANG], view_help[LANG]],
+                [view_smartbot[LANG],]]
 
     reply_markup = ReplyKeyboardMarkup(keyboard,
                                        one_time_keyboard=True,
@@ -95,7 +97,7 @@ def viomenu(bot, update):
     # Create buttons to slect language:
     keyboard = [[vio_map[LANG], vio_sketch[LANG]],
                 [vio_temp[LANG], vio_waterlvl[LANG]]]
-
+    print(update.message.text)
     if update.message.text == vio_sketch[LANG]:
         keyboard = [[vio_sketch1[LANG], vio_sketch2[LANG]],
                     [vio_sketch3[LANG], vio_sketch4[LANG]]]
@@ -144,6 +146,9 @@ def set_state(bot, update):
         STATE = ABOUTVIO
         aboutvio_bot(bot, update)
         return MENU
+    elif update.message.text == view_smartbot[LANG]:
+        STATE = SMARTBOT
+        smartbot(bot, update)
     elif update.message.text == view_vio[LANG]:
         STATE = VIODETAILS
         viomenu(bot, update)
@@ -219,7 +224,7 @@ def set_state(bot, update):
 
 def report(bot, update):
     """
-    FAQ function. Displays FAQ about disaster situations.
+    report function.
     """
     user = update.message.from_user
     logger.info("Report requested by {}.".format(user.first_name))
@@ -245,6 +250,7 @@ def viomap(bot, update):
     user = update.message.from_user
     logger.info("Maps requested by {}.".format(user.first_name))
     bot.sendLocation(chat_id=update.message.chat_id, latitude=-6.1977268, longitude=106.7468049)
+    bot.send_message(chat_id=update.message.chat_id, text=mapping_info[LANG])
     bot.send_message(chat_id=update.message.chat_id, text=back2menu[LANG])
     return
 
@@ -274,7 +280,7 @@ def dcim(bot, update):
     user = update.message.from_user
     logger.info("DCIM requested by {}.".format(user.first_name))
     poto = open('../imgs/dcim.png', 'rb')
-    bot.sendPhoto(chat_id=update.message.chat_id, photo=poto)
+    bot.sendPhoto(chat_id=update.message.chat_id, photo=poto, timeout=100)
     bot.send_message(chat_id=update.message.chat_id, text=dcim_info[LANG])
     bot.send_message(chat_id=update.message.chat_id, text=back2menu[LANG])
     return
@@ -315,6 +321,25 @@ def about_bot(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=about_info[LANG])
     bot.send_message(chat_id=update.message.chat_id, text=back2menu[LANG])
     return
+
+def smartbot(bot, update):
+    """
+    Smart Bot function. Displays info about VIO Bot.
+    """
+    user = update.message.from_user
+    logger.info("Smart Bot info requested by {}.".format(user.first_name))
+    request = apiai.ApiAI('8b2391e9cc974e4982f2e6225f15e258').text_request()
+    request.lang='id'
+    request.session_id='VIOBotAssistant'
+    request.query=update.message.text
+    responseJson=json.loads(request.getresponse().read().decode('utf-8'))
+    response= responseJson['result']['fulfillment']['speech']
+    if response:
+        bot.send_message(chat_id=update.message.chat_id, text=response)
+    else:
+        bot.send_message(chat_id=update.message.chat_id, text="Aku tidak begitu paham yang dimaksud?")
+    return
+
 
 def aboutvio_bot(bot, update):
     """
@@ -380,34 +405,41 @@ def main():
             MENU: [CommandHandler('menu', menu),CommandHandler('start', start)],
 
             SET_STAT: [RegexHandler(
-                        '^({}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{})$'.format(
+                        '^({}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{})$'.format(
                             about_vio['IND'],view_about['IND'],
                             view_vio['IND'], view_product['IND'],
-                            view_faq['IND'],view_help['IND'], vio_map['IND'],
-                            vio_waterlvl['IND'],vio_dcim['IND'], vio_temp['IND'],
+                            view_faq['IND'],view_help['IND'],view_smartbot['IND'],
+                            vio_map['IND'],vio_waterlvl['IND'],
+                            vio_dcim['IND'], vio_temp['IND'],
                             vio_sketch['IND'], vio_sketch1['IND'],
                             vio_sketch2['IND'],vio_sketch3['IND'],
-                            vio_sketch4['IND'], vio_temp1['IND'],vio_temp2['IND'],
-                            vio_temp3['IND'],vio_temp4['IND']),
+                            vio_sketch4['IND'], vio_temp1['IND'],
+                            vio_temp2['IND'],vio_temp3['IND'],
+                            vio_temp4['IND'],mapping_info['IND'],),
                         set_state),
                        RegexHandler(
-                        '^({}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{})$'.format(
+                        '^({}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{})$'.format(
                             about_vio['EN'], view_about['EN'],
                             view_vio['EN'], view_product['EN'],
-                            view_faq['EN'],view_help['EN'], vio_map['EN'],
-                            vio_waterlvl['EN'],vio_dcim['EN'], vio_temp['EN'],
+                            view_faq['EN'],view_help['EN'],view_smartbot['EN'],
+                            vio_map['EN'],vio_waterlvl['EN'],
+                            vio_dcim['EN'], vio_temp['EN'],
                             vio_sketch['EN'],vio_sketch1['EN'],
                             vio_sketch2['EN'],vio_sketch3['EN'],
-                            vio_sketch4['EN'],vio_temp1['EN'],vio_temp2['EN'],
-                            vio_temp3['EN'],vio_temp4['EN']),
+                            vio_sketch4['EN'],vio_temp1['EN'],
+                            vio_temp2['EN'],vio_temp3['EN'],
+                            vio_temp4['EN'],mapping_info['EN'],
+                            ),
                         set_state)],
 
             LOCATION: [MessageHandler(Filters.location, location),
-                       CommandHandler('menu', menu)]
+                       CommandHandler('menu', menu)],
+
         },
 
         fallbacks=[CommandHandler('done', cancel),
-                   CommandHandler('help', help)]
+                   CommandHandler('help', help),
+                   MessageHandler(Filters.text, smartbot)]
     )
 
     dp.add_handler(conv_handler)

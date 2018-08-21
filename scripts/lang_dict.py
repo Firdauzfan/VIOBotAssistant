@@ -43,6 +43,11 @@ view_map = {
     "EN": "View map"
 }
 
+view_smartbot = {
+    "IND": "Tampilkan VIO Smart Bot",
+    "EN": "View VIO Smart Bot"
+}
+
 view_faq = {
     "IND": "Tampilkan FAQ",
     "EN": "View FAQ"
@@ -66,8 +71,8 @@ or change language with /start"
 }
 
 goodbye = {
-    "IND": "Selamat tinggal",
-    "EN": "Bye, hope to chat back soon!"
+    "IND": "Selamat tinggal, Klik /start untuk memulai chat kembali",
+    "EN": "Bye, hope to chat back soon!, Click /start to start chat again"
 }
 
 selection = {

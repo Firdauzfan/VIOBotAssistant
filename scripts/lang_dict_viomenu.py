@@ -3,29 +3,34 @@ vio_map = {
     "EN": "View map"
 }
 
+mapping_info = {
+    "IND": "Jalan Meruya Ilir Raya, RT.1/RW.9, Meruya Utara, Kembangan, RT.1/RW.9, Srengseng, Kembangan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11630",
+    "EN": "Meruya Ilir Raya Street, RT.1/RW.9, Meruya Utara, Kembangan, RT.1/RW.9, Srengseng, Kembangan, Jakarta Barat City, Special Capital Region of Jakarta 11630 " 
+}
+
 vio_sketch = {
     "IND": "Tampilkan Denah",
     "EN": "View Sketch"
 }
 
 vio_sketch1 = {
-    "IND": "Lantai 1",
-    "EN": "Floor 1st"
+    "IND": "Denah Lantai 1",
+    "EN": "1st Floor Sketch"
 }
 
 vio_sketch2 = {
-    "IND": "Lantai 2",
-    "EN": "Floor 2nd"
+    "IND": "Denah Lantai 2",
+    "EN": "2nd Floor Sketch"
 }
 
 vio_sketch3 = {
-    "IND": "Lantai 3",
-    "EN": "Floor 3"
+    "IND": "Denah Lantai 3",
+    "EN": "3rd Floor Sketch"
 }
 
 vio_sketch4 = {
-    "IND": "Lantai 4",
-    "EN": "Floor 4"
+    "IND": "Denah Lantai 4",
+    "EN": "4th Floor Sketch"
 }
 
 vio_temp = {
@@ -34,23 +39,23 @@ vio_temp = {
 }
 
 vio_temp1 = {
-    "IND": "Lantai 1",
-    "EN": "Floor 1st"
+    "IND": "Temperature Lantai 1",
+    "EN": "1st Floor Temperature"
 }
 
 vio_temp2 = {
-    "IND": "Lantai 2",
-    "EN": "Floor 2nd"
+    "IND": "Temperature Lantai 2",
+    "EN": "2nd Floor Temperature"
 }
 
 vio_temp3 = {
-    "IND": "Lantai 3",
-    "EN": "Floor 3"
+    "IND": "Temperature Lantai 3",
+    "EN": "3rd Floor Temperature"
 }
 
 vio_temp4 = {
-    "IND": "Lantai 4",
-    "EN": "Floor 4"
+    "IND": "Temperature Lantai 4",
+    "EN": "4th Floor Temperature"
 }
 
 temperature= 20
